@@ -106,19 +106,19 @@ function Login() {
   const formatPhoneNumber = (value: string) => {
     const digits = value.replace(/\D/g, "");
     let formattedNumber = "";
-
-    if (digits.length > 0) {
-      formattedNumber += "(" + digits.substring(0, 3);
+    if (selectedCountry?.details.phone_length) {
+      if (digits.length > 0) {
+        formattedNumber += "(" + digits.substring(0, 3);
+      }
+      if (digits.length >= 4) {
+        formattedNumber += ") " + digits.substring(3, 6);
+      }
+      if (digits.length >= 7) {
+        formattedNumber +=
+          "-" +
+          digits.substring(6, parseInt(selectedCountry?.details.phone_length));
+      }
     }
-    if (digits.length >= 4) {
-      formattedNumber += ") " + digits.substring(3, 6);
-    }
-    if (digits.length >= 7) {
-      formattedNumber +=
-        "-" +
-        digits.substring(6, parseInt(selectedCountry?.details.phone_length));
-    }
-
     return formattedNumber;
   };
   const handleClose = () => {
@@ -146,6 +146,7 @@ function Login() {
           />
         </div>
         {phoneNumber.length != 0 &&
+          selectedCountry?.details.phone_length &&
           phoneNumber.replace(/\D/g, "").length <
             parseInt(selectedCountry?.details.phone_length) && (
             <p className="text-red-500 text-sm mt-1">{`Phone number must be ${selectedCountry?.details.phone_length} digits long.`}</p>

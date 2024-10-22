@@ -12,6 +12,7 @@ const InternetStatus: React.FC<InternetStatusProps> = ({ children }) => {
     const handleOnline = () => {
       setIsOnline(true);
       setError(""); // Clear error when online
+      console.log(error);
     };
 
     const handleOffline = () => {

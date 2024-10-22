@@ -18,7 +18,6 @@ interface PhoneInputProps {
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
-  selectedCountry,
   phoneNumber,
   handleNumber,
   placeHolder,
