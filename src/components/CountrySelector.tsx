@@ -27,7 +27,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
       {selectedCountry && (
         <div className="flex items-center justify-start">
           <img
-            src={`flags/${selectedCountry.code.toLowerCase()}.svg`}
+            src={`https://flagcdn.com/${selectedCountry.code.toLowerCase()}.svg`}
             alt={selectedCountry.details.name}
             className="w-5 h-5 object-contain mr-2"
           />
