@@ -23,6 +23,7 @@ const CountriesList: React.FC<CountriesListProps> = ({
           onClick={() => handleChange(code)}
         >
           <img
+            loading="lazy"
             src={`https://flagcdn.com/${code.toLowerCase()}.svg`}
             alt={name}
             className="mr-2 w-5 h-5 object-contain"
